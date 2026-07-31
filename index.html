@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onat Özmen</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="description" content="Onat Özmen. CTIS student at Bilkent University and Microsoft Customer Success Account Manager Intern building LLM-powered and agentic AI systems.">
+<style>
+  @font-face{font-family:iA Writer Mono;font-style:normal;font-display:block;font-weight:400;src:url(fonts/latin-400-normal.woff2)format("woff2"),url(fonts/latin-400-normal.woff)format("woff")}
+  @font-face{font-family:iA Writer Mono;font-style:normal;font-display:block;font-weight:700;src:url(fonts/latin-700-normal.woff2)format("woff2"),url(fonts/latin-700-normal.woff)format("woff")}
+  @font-face{font-family:iA Writer Mono;font-style:italic;font-display:block;font-weight:400;src:url(fonts/latin-400-italic.woff2)format("woff2"),url(fonts/latin-400-italic.woff)format("woff")}
+  @font-face{font-family:iA Writer Mono;font-style:italic;font-display:block;font-weight:700;src:url(fonts/latin-700-italic.woff2)format("woff2"),url(fonts/latin-700-italic.woff)format("woff")}
+
+  :root{
+    --white:#252525;
+    --transwhite:#252525b3;
+    --black:#faf5f6;
+    --gray:#a4a4a4;
+    --highlight:#e9bc3f;
+    --green:#24d05a;
+    --pink:#eb4888;
+    --blue:#10a2f5;
+    --yellow:#e9bc3f;
+  }
+
+  ::selection{background-color:var(--highlight);color:#252525}
+
+  *{margin:0;padding:0;box-sizing:border-box}
+
+  html,body{
+    background-color:var(--white);
+    word-wrap:break-word;overflow-wrap:break-word;
+    color:var(--black);
+    scroll-behavior:smooth;
+    margin:auto;padding:20px;
+  }
+  body,button,code,input{font-family:iA Writer Mono,monospace}
+
+  h1{font-weight:400;font-size:2.2em;line-height:1.1}
+  h2,h3,h4,h5,h6{color:var(--gray);line-height:1.1;font-weight:400}
+  h3{text-align:center;margin:1em 0}
+
+  a{color:var(--black);text-underline-offset:.3ex;text-decoration-thickness:.3ex}
+
+  .header-section{flex-wrap:wrap;justify-content:center;align-items:center;display:flex;gap:2rem;padding:1rem 0 0}
+  .header-frame{max-width:350px}
+  .header-frame h2{white-space:pre-wrap;margin:.5em 0;color:var(--gray)}
+  .header-contacts{margin-top:.5rem;font-size:.85rem;line-height:1.8}
+  .header-contacts span{color:var(--gray)}
+  .img-frame{border-radius:50%;width:180px;height:180px;margin:10px 0;position:relative;overflow:hidden}
+  .img-frame img{height:100%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+
+  nav{text-align:center;background:var(--transwhite);backdrop-filter:blur(1px);position:sticky;top:0;z-index:10;border-bottom:1px solid var(--gray)}
+  nav a{display:inline-block;margin:1rem 0;text-decoration:none;font-weight:400;color:var(--black)}
+  nav a:not(:last-child){padding:0 .75rem 0 0}
+  nav a:hover{font-weight:700;text-decoration:underline .3ex}
+  @media (max-width:650px){nav{padding:.8rem 0}nav a{margin:.4rem 0;padding:0 .5rem!important}}
+
+  main{line-height:1.7;max-width:70ch;margin:0 auto;padding:1rem 0 2rem}
+  main p{margin:0 0 1em}
+
+  ul.posts-list{list-style-type:none;padding:0}
+  .post{margin:0 0 30px}
+  .post .title{font-size:1.3em;font-weight:400}
+  .post time{color:var(--gray);font-style:italic;font-size:.9rem}
+  .post .excerpt{color:var(--black)}
+  .post .tags{justify-content:flex-start}
+
+  .tags{flex-wrap:wrap;justify-content:center;display:flex}
+  .tag{color:var(--black);margin:auto 10px;font-size:.8rem;display:inline-block}
+  .tag:hover{cursor:pointer;font-weight:700}
+  .tag.posty{margin-left:0;margin-right:10px}
+
+  .tag-title{color:var(--black);font-weight:400}
+
+  hr{border-top:1px solid var(--gray);width:75%;margin:2rem auto}
+
+  .center{text-align:center}
+
+  .section-title{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gray);margin:2.5rem 0 1rem;font-weight:700;text-align:center}
+
+  .item{margin:0 0 26px}
+  .item-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;align-items:baseline}
+  .item-title{font-size:1.05em;font-weight:700;color:var(--black)}
+  .item-meta{color:var(--gray);font-style:italic;font-size:.85rem}
+  .item-sub{color:var(--gray);font-size:.9rem;margin:.4rem 0 .6rem}
+
+  .item-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:.4rem}
+
+  .grid{display:grid;grid-template-columns:1fr;gap:18px}
+  #opensource-grid{min-height:260px}
+  @media (min-width:620px){.grid{grid-template-columns:1fr 1fr}}
+  .card{border:1px solid var(--gray);border-radius:0;padding:18px;display:flex;flex-direction:column;gap:10px}
+  .card h3{font-size:1.05em;text-align:left;margin:0}
+  .card p{font-size:.9rem;color:var(--black);flex:1;margin:0}
+  .card .card-links{display:flex;gap:16px;font-size:.85rem}
+  .card .item-tags{margin-top:0}
+
+  .skill-cat{padding:0 0 14px;border-bottom:1px solid var(--gray);margin-bottom:14px}
+  .skill-cat:last-child{border-bottom:none}
+  .skill-cat h4{font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;color:var(--gray);margin-bottom:.4rem}
+  .skill-cat p{font-size:.9rem;margin:0;color:var(--black)}
+
+  .cert{padding:0 0 20px;margin-bottom:0}
+  .cert h4{font-size:1em;margin-bottom:.3rem;color:var(--black);display:flex;align-items:center;gap:8px}
+  .cert .cert-logo{height:1.9em;width:auto}
+  .cert p{font-size:.9rem;color:var(--black);margin:0}
+
+  .view-all{margin-top:22px;text-align:center}
+  .view-all a{font-size:.9rem}
+
+  footer{text-align:center;padding:25px;font-size:.8rem}
+  footer a{color:var(--black)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-section">
+    <div class="header-frame">
+      <h1>Onat Özmen</h1>
+      <h2>Information Systems and Technologies Student at Bilkent University &amp; Microsoft Customer Success Account Manager Intern<br>Ankara, Türkiye</h2>
+      <div class="header-contacts">
+        <a href="mailto:onatozmen44@gmail.com">onatozmen44@gmail.com</a><br>
+        <a href="tel:+905352207803">+90 535 220 78 03</a><br>
+        <a href="https://github.com/onatozmenn" target="_blank" rel="noopener">github</a> ·         <a href="https://www.linkedin.com/in/onat-%C3%B6zmen-5b2212250" target="_blank" rel="noopener">linkedin</a>
+      </div>
+    </div>
+    <div class="img-frame">
+      <img id="propic" src="profile.png" alt="Onat's face">
+    </div>
+  </div>
+</header>
+
+<nav>
+  <a href="/" class="active">home</a>
+  <a href="#profile">profile</a>
+  <a href="#experience">experience</a>
+  <a href="#projects">projects</a>
+  <a href="#opensource">open source</a>
+  <a href="#skills">skills</a>
+  <a href="#certificates">certificates</a>
+</nav>
+
+<main>
+
+<section class="section" id="profile">
+  <p>Bilkent CTIS student and Microsoft intern. I build agentic AI systems, I'm writing my own programming language for agents (Deed), and I contribute to open source. I like shipping AI products that make teams more efficient.</p>
+</section>
+
+<section class="section" id="experience">
+  <h2 class="section-title">Experience</h2>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Microsoft · Customer Success Account Manager Intern</span>
+      <span class="item-meta">02/2026 – Present · Ankara, Türkiye</span>
+    </div>
+    <p>Converted bot-based systems into agentic solutions with the Microsoft 365 Agents Toolkit, integrating with Microsoft Copilot Chat. Worked hands-on with agents, flows, and connectors, designing technical directions for AI use cases and collaborating across customer success and technical teams.</p>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Microsoft · AI Engineering Intern</span>
+      <span class="item-meta">06/2025 – 08/2025 · Ankara, Türkiye</span>
+    </div>
+    <p>Designed an AI-powered conversational search and recommendation system using RAG. Built a semantic search engine with Azure OpenAI embeddings, wrote and optimized SQL on Azure SQL Database, and developed full-stack features with React, Next.js, and Node.js while collaborating with a senior database and AI engineer.</p>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">Bilkent University · B.S. in CTIS (Computer Technology and Information Systems)</span>
+      <span class="item-meta">09/2023 – 06/2027 (Expected) · Ankara, Türkiye</span>
+    </div>
+    <p class="item-sub">Relevant Coursework: Data Structures &amp; Algorithms, Object-Oriented Programming, Database Systems, Software Engineering, Backend Development, Cloud Computing Foundations.</p>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <h2 class="section-title">Projects</h2>
+
+  <content>
+    <ul class="posts-list">
+      <li class="post">
+        <a class="title" href="https://github.com/deed-lang/deed" target="_blank" rel="noopener">The Deed programming language</a>
+        <time>Rust · Compiler</time><br>
+        <span class="excerpt">A contract-first programming language for agents, where a function signature is a promise the compiler checks.</span>
+        <div class="tags">
+          <a class="tag posty" href="https://github.com/deed-lang/deed" target="_blank" rel="noopener">#compiler</a>
+          <a class="tag posty" href="https://github.com/deed-lang/deed" target="_blank" rel="noopener">#language</a>
+          <a class="tag posty" href="https://github.com/deed-lang/deed" target="_blank" rel="noopener">#rust</a>
+        </div>
+      </li>
+      <li class="post">
+        <a class="title" href="https://github.com/onatozmenn/klinik-mcp" target="_blank" rel="noopener">KlinikMCP</a>
+        <time>Python · FastMCP · Docker</time><br>
+        <span class="excerpt">Open-source MCP server connecting AI assistants to Turkey-specific drug, interaction, and reimbursement data. 18 tools over 10+ official sources (TİTCK, SGK, openFDA, PubMed, DDInter).</span>
+        <div class="tags">
+          <a class="tag posty" href="https://github.com/onatozmenn/klinik-mcp" target="_blank" rel="noopener">#mcp</a>
+          <a class="tag posty" href="https://github.com/onatozmenn/klinik-mcp" target="_blank" rel="noopener">#health</a>
+          <a class="tag posty" href="https://github.com/onatozmenn/klinik-mcp" target="_blank" rel="noopener">#python</a>
+        </div>
+      </li>
+      <li class="post">
+        <a class="title" href="https://github.com/onatozmenn/offerpilot" target="_blank" rel="noopener">offerpilot</a>
+        <time>Go · PostgreSQL</time><br>
+        <span class="excerpt">Go-first online-learning system for privacy-safe marketplace offer selection with logged propensities, off-policy evaluation, and a live dashboard.</span>
+        <div class="tags">
+          <a class="tag posty" href="https://github.com/onatozmenn/offerpilot" target="_blank" rel="noopener">#go</a>
+          <a class="tag posty" href="https://github.com/onatozmenn/offerpilot" target="_blank" rel="noopener">#ml</a>
+        </div>
+      </li>
+      <li class="post">
+        <a class="title" href="https://github.com/onatozmenn/audio-transcription-tool" target="_blank" rel="noopener">audio-transcription-tool</a>
+        <time>TypeScript · Privacy-first</time><br>
+        <span class="excerpt">Free, privacy-first audio transcription. Runs locally in your browser; secure cloud fallback on mobile. No sign-up.</span>
+        <div class="tags">
+          <a class="tag posty" href="https://github.com/onatozmenn/audio-transcription-tool" target="_blank" rel="noopener">#privacy</a>
+          <a class="tag posty" href="https://github.com/onatozmenn/audio-transcription-tool" target="_blank" rel="noopener">#web</a>
+          <a class="tag posty" href="https://audio-transcription.app" target="_blank" rel="noopener">#live</a>
+        </div>
+      </li>
+      <li class="post">
+        <a class="title" href="https://github.com/onatozmenn/zintelai" target="_blank" rel="noopener">ZintelAI</a>
+        <time>TypeScript · RAG · Azure OpenAI</time><br>
+        <span class="excerpt">Microsoft internship project. End-to-end RAG platform for product search built with Azure OpenAI, React, Next.js, and Node.js.</span>
+        <div class="tags">
+          <a class="tag posty" href="https://github.com/onatozmenn/zintelai" target="_blank" rel="noopener">#rag</a>
+          <a class="tag posty" href="https://github.com/onatozmenn/zintelai" target="_blank" rel="noopener">#ai</a>
+          <a class="tag posty" href="https://github.com/onatozmenn/zintelai" target="_blank" rel="noopener">#typescript</a>
+        </div>
+      </li>
+      <li class="post">
+        <a class="title" href="https://github.com/onatozmenn/sold" target="_blank" rel="noopener">sold</a>
+        <time>Python · Data Viz · Econometrics</time><br>
+        <span class="excerpt">Verified UYAP auction data for Turkish property valuation, with an interactive appraisal-to-sale atlas.</span>
+        <div class="tags">
+          <a class="tag posty" href="https://github.com/onatozmenn/sold" target="_blank" rel="noopener">#python</a>
+          <a class="tag posty" href="https://github.com/onatozmenn/sold" target="_blank" rel="noopener">#dataviz</a>
+        </div>
+      </li>
+      <li class="post">
+        <a class="title" href="https://github.com/onatozmenn/TCA-engine" target="_blank" rel="noopener">TCA-engine</a>
+        <time>Python · Space</time><br>
+        <span class="excerpt">Conjunction-triage and orbital-data-reliability engine over public catalogs (CelesTrak, SOCRATES, SATCAT).</span>
+        <div class="tags">
+          <a class="tag posty" href="https://github.com/onatozmenn/TCA-engine" target="_blank" rel="noopener">#space</a>
+          <a class="tag posty" href="https://github.com/onatozmenn/TCA-engine" target="_blank" rel="noopener">#python</a>
+        </div>
+      </li>
+    </ul>
+  </content>
+
+  <p class="center">
+    See everything on <a href="https://github.com/onatozmenn" target="_blank" rel="noopener">github</a>.
+  </p>
+</section>
+
+<section class="section" id="opensource">
+  <h2 class="section-title">Open Source</h2>
+  <p>I open pull requests against established projects and get them reviewed and merged. Recent work (pulled live from GitHub):</p>
+  <div class="grid" id="opensource-grid">
+    <p class="center" id="opensource-loading">Loading recent pull requests...</p>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <h2 class="section-title">Skills</h2>
+  <div class="skill-cat">
+    <h4>Programming &amp; Data</h4>
+    <p>C, Java, Python, TypeScript, Go, Rust, SQL</p>
+  </div>
+  <div class="skill-cat">
+    <h4>AI Systems</h4>
+    <p>Retrieval-Augmented Generation, Azure OpenAI, MCP / FastMCP, Microsoft 365 Agents Toolkit</p>
+  </div>
+  <div class="skill-cat">
+    <h4>Web Development</h4>
+    <p>React, Next.js, Node.js</p>
+  </div>
+  <div class="skill-cat">
+    <h4>DevOps &amp; Cloud</h4>
+    <p>Microsoft Azure, Azure SQL, PostgreSQL, Docker, Kubernetes</p>
+  </div>
+  <div class="skill-cat">
+    <h4>Version Control &amp; Tools</h4>
+    <p>Git, GitHub, Linux, pytest</p>
+  </div>
+</section>
+
+<section class="section" id="certificates">
+  <h2 class="section-title">Certificates</h2>
+  <div class="cert">
+    <h4><img class="cert-logo" src="claude.svg" alt="Claude"> Claude Certified Architect · Foundations</h4>
+    <p>Issued by Anthropic. Agentic AI system design: workflow orchestration, tool integration, and prompt design. <a href="https://verify.skilljar.com/c/zi5uuoarbebx" target="_blank" rel="noopener">Verify</a></p>
+  </div>
+  <div class="cert">
+    <h4><img class="cert-logo" src="cisco.svg" alt="Cisco"> CCNA: Introduction to Networks</h4>
+    <p>Issued by Cisco. Networking: IP addressing, Ethernet, and configuring connectivity between switches, routers, and end devices. <a href="https://www.credly.com/badges/0c369500-4572-44b0-a0ab-a67b9fe73916/linked_in_profile" target="_blank" rel="noopener">Verify</a></p>
+  </div>
+</section>
+
+<hr>
+
+<h3 class="tag-title">View my projects by tag</h3>
+<div class="tags">
+  <a class="tag" href="#projects">#mcp</a>
+  <a class="tag" href="#projects">#ai</a>
+  <a class="tag" href="#projects">#rag</a>
+  <a class="tag" href="#projects">#rust</a>
+  <a class="tag" href="#projects">#python</a>
+  <a class="tag" href="#projects">#typescript</a>
+  <a class="tag" href="#projects">#compiler</a>
+  <a class="tag" href="#projects">#dataviz</a>
+  <a class="tag" href="#projects">#health</a>
+  <a class="tag" href="#projects">#opensource</a>
+</div>
+
+</main>
+
+<footer>
+  © <span id="year"></span> Onat Özmen
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  let colors = ["#24d05a", "#eb4888", "#10a2f5", "#e9bc3f"];
+
+  function getRandomColor() {
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
+
+  function setRandomLinkColor() {
+    Array.from(document.getElementsByTagName("a")).forEach((e) => {
+      e.style.textDecorationColor = getRandomColor();
+    });
+  }
+
+  function setColorHoverListener() {
+    Array.from(document.querySelectorAll("a, button, input")).forEach((e) => {
+      e.addEventListener("mouseover", setRandomLinkColor);
+    });
+  }
+
+  async function loadOpenSourcePRs() {
+    const grid = document.getElementById("opensource-grid");
+    const loading = document.getElementById("opensource-loading");
+    if (!grid) return;
+    try {
+      const res = await fetch(
+        "https://api.github.com/search/issues?q=" +
+        encodeURIComponent("author:onatozmenn type:pr -repo:deed-lang/deed -repo:deed-lang/deed-lang.github.io") +
+        "&sort=updated&order=desc&per_page=20"
+      );
+      if (!res.ok) throw new Error("api error");
+      const data = await res.json();
+      const prs = (data.items || [])
+        .filter((i) => i.pull_request)
+        .filter((i) => !/deed-lang\//i.test(i.repository_url));
+
+      if (!prs.length) throw new Error("no prs");
+
+      grid.innerHTML = "";
+      prs.slice(0, 8).forEach((pr) => {
+        const repo = pr.repository_url.split("/repos/")[1] || "";
+        const [owner, name] = repo.split("/");
+        const state = pr.pull_request.merged_at ? "merged" : pr.state;
+
+        const card = document.createElement("div");
+        card.className = "card";
+
+        const h3 = document.createElement("h3");
+        h3.textContent = (owner || "") + " · " + (name || "");
+
+        const p = document.createElement("p");
+        p.textContent = pr.title;
+
+        const tags = document.createElement("div");
+        tags.className = "item-tags";
+        const tag = document.createElement("span");
+        tag.className = "tag";
+        tag.textContent = "#" + state;
+        tags.appendChild(tag);
+
+        const links = document.createElement("div");
+        links.className = "card-links";
+        const a = document.createElement("a");
+        a.href = pr.html_url;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = "pull request";
+        links.appendChild(a);
+
+        card.appendChild(h3);
+        card.appendChild(p);
+        card.appendChild(tags);
+        card.appendChild(links);
+        grid.appendChild(card);
+      });
+      setRandomLinkColor();
+    } catch (err) {
+      loading.textContent = "Could not load pull requests right now.";
+    }
+  }
+
+  (function () {
+    setRandomLinkColor();
+    setColorHoverListener();
+    loadOpenSourcePRs();
+  })();
+</script>
+
+</body>
+</html>
